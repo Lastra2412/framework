@@ -1,0 +1,28 @@
+<?php
+class Rota{
+    private $controlador = "Paginas";
+    public function_construct(){
+        echo 'criando a primeira classe';
+        $this 
+    }//fim da funçâo construtor
+
+    private function ur1(){
+        //echo 'carregando a url';
+       //o filtro FILTER_SANITIZE_URL remove todos os caracteres ilegais de uma url.
+       $url = filter_input(INPUT_GET, 'url',FILTER_SANITIZE_URL);
+       //verifica se a url existe
+       if(isset($url)){
+
+        //trim - Retira espaço no inicio e final de uma 
+        String
+        //rtrim - retira espaço nem branco (ou outros
+        caracteres) do final da String
+
+        //explode - divide uma string em strings, e retorna um array
+        $url = explode('/', $url);
+        return $url;
+       }//fim do if
+        echo $_GET["url"];
+    }//fim da funçâo url
+
+}//fim da classe Rota
