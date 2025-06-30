@@ -1,10 +1,10 @@
 <?php
 class Rota{
     private $controlador = "Paginas";
-    public function_construct(){
+    public function _construct(){
         echo 'criando a primeira classe';
-        $this 
-    }//fim da funçâo construtor
+        $this;
+    } //fim da funçâo construtor
 
     private function ur1(){
         //echo 'carregando a url';
@@ -13,10 +13,11 @@ class Rota{
        //verifica se a url existe
        if(isset($url)){
 
-        //trim - Retira espaço no inicio e final de uma 
-        String
-        //rtrim - retira espaço nem branco (ou outros
-        caracteres) do final da String
+        //trim - Retira espaço no inicio e final de uma String
+          
+        
+        //rtrim - retira espaço nem branco (ou outros caracteres) do final da String
+        
 
         //explode - divide uma string em strings, e retorna um array
         $url = explode('/', $url);
@@ -26,3 +27,4 @@ class Rota{
     }//fim da funçâo url
 
 }//fim da classe Rota
+

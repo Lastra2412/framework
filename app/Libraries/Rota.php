@@ -1,9 +1,27 @@
 <?php
 class Rota{
     private $controlador = "Paginas";
-    public function__construct(){
+    private $metodo = 'index';
+    private $parametros = [];
+    public function __construct(){
       //  echo 'criando a primeira classe';
-        $this->url();
+    $url = $this->url() ? $this->url(): [0];
+    if(file_exists('..app/controllers/' .ucwords($url[0]).'.php')){
+        $this->controlador = ucwords($url[0]);
+        unset($url[0]);
+    }//fim do if que verifica se o arquivo existe
+    require_once '../app/Controllers/'.$this->controlador.'.php';
+    $this->controlador= new $this->controlador;
+    if(isset($url[1])){
+    if(method_exists($this->controlador, $url[1])){
+         $this->metodo = $url[1];
+        unset($url[1]);
+    }//fim do if que verifica se o método existe 
+    }//fim do if que verifica se a url existe
+    $this->parametros = $url ? array_values($url) : [];
+    call_user_func_array([$this->controlador, $this->metodo],
+    $this->parametros);
+
         var_dump($this); 
     }//fim da função construtor
 
@@ -26,4 +44,4 @@ class Rota{
     }//fim da função url
 
 }//fim da classe Rota 
-
+ 
